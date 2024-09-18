@@ -8,9 +8,9 @@ docker run -p 8800:80 nginx
 docker run -d -p 7800:80 nginx
 docker ps
 docker ps --all
-docker run stop image
-docker start image
-docker stop image
+docker run stop 'image'
+docker start 'image'
+docker stop 'image'
 docker exec id container ls
 docker exec -it id container sh
 docker exec -it id container bash
