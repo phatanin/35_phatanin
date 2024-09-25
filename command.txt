@@ -44,3 +44,11 @@ docker container inspect mysql, /var/lib/mysql
 docker run -d --name mysql02 --network wordpress02 -v mysql_volume:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=1111 -e MYSQL_DATABASE=wordpress02_db -e MYSQL_USER=wordpress -e MYSQL_PASSWORD=wordpress mysql:5.7
 docker run --name pma02 --network wordpress02 -p 8889:80 -e PMA_ARBITRARY=1 -d phpmyadmin/phpmyadmin
 docker run -d --name wordpress02 --network wordpress02 -v wp_volume:/var/www/html -e WORDPRESS_DB_HOST=mysql02 -e WORDPRESS_DB_USER=wordpress -e WORDPRESS_DB_PASSWORD=wordpress -e WORDPRESS_DB_NAME=wordpress02_db -p 889:80 wordpress
+
+docker network create wordpress03
+docker run -d --name mysql03 --network wordpress03 -v C:\Users\phatanin\Desktop\Docker_Bootcamp\wordpress\mysql:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=1111 -e MYSQL_DATABASE=wordpress03_db -e MYSQL_USER=wordpress -e MYSQL_PASSWORD=wordpress mysql:5.7
+docker run -d --name wordpress03 --network wordpress03 -v C:\Users\phatanin\Desktop\Docker_Bootcamp\wordpress\wp:/var/www/html -e WORDPRESS_DB_HOST=mysql03 -e WORDPRESS_DB_USER=wordpress -e WORDPRESS_DB_PASSWORD=wordpress -e WORDPRESS_DB_NAME=wordpress03_db -p 890:80 wordpress
+docker run --name pma03 --network wordpress03 -p 8890:80 -e PMA_ARBITRARY=1 -d phpmyadmin/phpmyadmin
+docker compose
+docker-compose up -d
+docker-compose down
