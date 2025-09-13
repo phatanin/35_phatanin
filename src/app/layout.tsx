@@ -1,15 +1,14 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { IBM_Plex_Sans_Thai } from "next/font/google";
 import "./globals.css";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import Hero from "@/components/Hero";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+const ibmPlex = IBM_Plex_Sans_Thai({
+  subsets: ["thai"],
+  weight: ["300", "500", "700"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -24,10 +23,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+      <body className={`${ibmPlex.className} antialiased`}>
+        <div className="min-h-screen bg-zinc-100">
+          <Navbar />
+          <Hero />
+          {children}
+          <Footer />
+        </div>
       </body>
     </html>
   );

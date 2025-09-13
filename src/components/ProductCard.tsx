@@ -3,7 +3,8 @@
 import Image from "next/image";
 import { ShoppingCart } from "lucide-react";
 import { redirect } from "next/navigation";
-import { Product, ProductCardProps } from "@/types";
+
+import { ProductCardProps } from "@/types";
 
 const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   const handleBuyProduct = async () => {
@@ -51,7 +52,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
       </div>
 
       <div className="p-4">
-        <h3 className="mb-2 line-clamp-2 text-lg font-semibold text-zinc-800">
+        <h3 className="mb-2 line-clamp-2 text-lg font-semibold text-gray-800">
           {product.name}
         </h3>
 
